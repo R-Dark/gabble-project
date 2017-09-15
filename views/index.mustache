@@ -22,7 +22,14 @@
       <div class="gabDiv">
         <h2>{{title}}</h2>
         <p>{{body}}</p>
-        <a href="/likeGab">Like this gab!</a>
+        <div class="likesDiv">
+          <h5>Liked by:</h5>
+          {{#likes}}
+          {{userid}}
+          {{/likes}}
+
+        </div>
+        <a href="/likeGab/{{id}}">Like this gab!</a>
         <a href="/deleteGab/{{id}}">Delete this gab!</a>
       </div>
       {{/posts}}

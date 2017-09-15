@@ -13,12 +13,21 @@ const requireAuth = function(req, res, next) {
 }
 
 router.get("/", requireAuth, function(req, res) {
-  models.posts.findAll({ limit:20, order: [['createdAt', 'DESC']]})
+  models.posts.findAll({
+      limit: 20,
+      order: [
+        ['createdAt', 'DESC']
+      ]
+    })
     .then(function(posts) {
-      res.render("index", {
-        testmessage: "Succesfully rendered posts",
-        posts: posts
-      })
+      models.likes.findAll()
+        .then(function(likes) {
+          res.render("index", {
+            testmessage: "Succesfully rendered posts",
+            posts: posts,
+            likes: likes
+          })
+        })
     })
 })
 
