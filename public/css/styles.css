@@ -37,3 +37,11 @@ article {
   background: red;
   color: white;
 }
+
+.gabDiv {
+  border: solid;
+  border-color: #5d8bbb;
+  background-color: rgb(212, 214, 214);
+  margin-top: 10px;
+  padding-left: 20px;
+}
