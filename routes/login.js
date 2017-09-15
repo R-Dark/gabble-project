@@ -22,11 +22,15 @@ router.get("/", requireAuth, function(req, res) {
     .then(function(posts) {
       models.likes.findAll()
         .then(function(likes) {
-          res.render("index", {
-            testmessage: "Succesfully rendered posts",
-            posts: posts,
-            likes: likes
-          })
+          models.user.findOne()
+            .then(function(user) {
+              res.render("index", {
+                testmessage: "Succesfully rendered posts",
+                posts: posts,
+                likes: likes,
+                user: req.session.user
+              })
+            })
         })
     })
 })

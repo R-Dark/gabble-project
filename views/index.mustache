@@ -12,7 +12,9 @@
       <nav>
         <a href="/">Gabble</a>
         <a href="/newGab">Create New Gab</a>
-        <a href="#">Logged in as placehoder</a>
+        {{#user}}
+        <a href="#">Logged in as {{username}}</a>
+        {{/user}}
         <a href="/logout">Sign-Out</a>
       </nav>
     </header>
