@@ -4,11 +4,18 @@ const models = require("../models")
 
 //delete a gab
 router.get("/deleteGab/:id", function(req, res) {
-  models.posts.destroy({
+  models.likes.destroy({
+    where: {
+      postid : req.params.id
+    }
+  })
+  .then(function(){
+    models.posts.destroy({
       where: {
         id: req.params.id
       }
     })
+  })
     .then(function() {
       res.redirect("/")
     })

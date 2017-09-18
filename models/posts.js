@@ -4,12 +4,9 @@ module.exports = function(sequelize, DataTypes) {
     title: DataTypes.STRING,
     body: DataTypes.STRING,
     userid: DataTypes.INTEGER
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
-  });
+  }, {});
+  posts.associate = function(models) {
+    posts.hasMany(models.likes,{as : 'likes', foreignKey : 'postid'})
+  }
   return posts;
 };
